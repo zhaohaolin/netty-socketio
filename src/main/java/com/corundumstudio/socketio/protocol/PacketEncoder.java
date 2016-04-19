@@ -87,7 +87,8 @@ public class PacketEncoder {
             }
         }
 
-        if (jsonpMode) {
+        // check null point for jsonpIndex
+        if (jsonpMode && null!=jsonpIndex) {
             out.writeBytes(JSONP_HEAD);
             out.writeBytes(toChars(jsonpIndex));
             out.writeBytes(JSONP_START);
